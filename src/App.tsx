@@ -11,15 +11,16 @@ function App() { // todos = all of our todos, setTodos = function to update our 
     new Todo("Test 3", true, uuidv4()),
   ])
 
-  console.log(todos)
   //add new todos to the todoList with setTodos
-  const [newTodo, setNewTodo] = useState<string>("");
+  const [newTodo, setNewTodo] = useState<string>(""); // create a useState to save the new todos
   
   const addTodo = () => {
-    if(newTodo.trim() !== "") {
-      const newTodoText = new Todo(newTodo, false, uuidv4());
-      setTodos([...todos, newTodoText]);
-      setNewTodo("");
+    if(newTodo.trim() !== "") { // if newTodo is not empty string, continue
+      const newTodoText = new Todo(newTodo, false, uuidv4()); // create a new ToDo into variable newTodoText
+      setTodos([...todos, newTodoText]); // then add the newTodoText with a copy of the current todos that already exist
+      setNewTodo(""); // set the input-field to empty when added.
+    } else {
+      console.log('You need to add something.....')
     }
   }
 
