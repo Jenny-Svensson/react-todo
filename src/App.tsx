@@ -10,11 +10,26 @@ function App() { // todos = all of our todos, setTodos = function to update our 
     new Todo("Test 3", true, 3),
   ])
 
+  //add new todos to the todoList with setTodos
+  const [newTodo, setNewTodo] = useState<string>("");
+  
+  const addTodo = () => {
+    if(newTodo.trim() !== "") {
+      const newTodoText = new Todo(newTodo, false, todos.length +1);
+      setTodos([...todos, newTodoText]);
+      setNewTodo("");
+    }
+  }
+  
   return (
     <> 
       <TodoList todos={todos} />
-      <input type="text" /> 
-      <button>Add</button>
+      <input
+         type="text"
+         value={newTodo}
+         onChange={(e) => setNewTodo(e.target.value)} 
+         /> 
+      <button onClick={addTodo}>Add</button>
     </>
     )
   }
