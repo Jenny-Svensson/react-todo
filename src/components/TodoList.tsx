@@ -4,7 +4,7 @@ import { RemoveTodo } from "./RemoveTodo";
 interface ItodoListProps {
   todos: Todo[];
   onToggle: (id: string) => void;
-  onRemove: (id: string) => void; // New prop for delete function
+  onRemove: (id: string) => void;
 }
 
 export const TodoList = ({ todos, onToggle, onRemove }: ItodoListProps) => {
